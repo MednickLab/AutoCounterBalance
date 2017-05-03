@@ -5,7 +5,7 @@ This code will counterbalence conditions with respect to each other. If you dont
 Use this code at your own risk, its has not be thoroughly tested and is in no way optimized. 
 
 This code is best explained with examples:
-### example 1:
+### Example 1:
 3 between subjects factor (Time: 3hrs or 7 Days, Catergory: A or B, Room: 1 or 2)
 1 factor all subjects get (Final Room Order: A,B,C,D)
 
