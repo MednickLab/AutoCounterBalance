@@ -14,30 +14,29 @@ We would like to:
 - b) Balence the order of Final Room Order, such that each ordering apears the same amount in each timing condition
 
 The code for this is as follows:
+
 ```
 clear
 n=64;
 cond = fact({'3Hr;','7Day;'},n);
-category = fact({'1;','2;'},n);
-category.counterbalenceWith(cond);
-initalRoom = fact({'C;','D;'},n);
-initalRoom.counterbalenceWith(cond);
-initalRoom.counterbalenceWith(cat);
-finalRoom = factNested({'A;','B;','C;','D;'},n);
-finalRoom.counterbalenceWith(cond);
+cat = fact({'1;','2;'},n);
+cat.counterbalanceWith(cond);
+room1 = fact({'C;','D;'},n);
+room1.counterbalanceWith(cond);
+room1.counterbalanceWith(cat);
+session4 = factNested({'C;','D;','B;','B(MemA);'},n);
+session4.counterbalanceWith(cond);
 
-
-%create counterbalence file to save
-counterBalence.cond=cond.balencedOutput();
-counterBalence.category=category.balencedOutput();
-counterBalence.initalRoom=initalRoom.balencedOutput();
-counterBalence.finalRoom=finalRoom.balencedOutput();
+%create counterbalance file to save
+counterBalance.cond=cond.balancedOutput();
+counterBalance.cat=cat.balancedOutput();
+counterBalance.room1=room1.balancedOutput();
+counterBalance.session4=session4.balancedOutput();
 %randomly shuffle subject order
 randsort = randperm(n);
-counterBalence.cond=counterBalence.cond(randsort,:);
-counterBalence.cat=counterBalence.cat(randsort,:);
-counterBalence.room1=counterBalence.room1(randsort,:);
-counterBalence.session4=counterBalence.session4(randsort,:);
-writetable(struct2table(counterBalence),'CounterBalenceGen.csv');
-
+counterBalance.cond=counterBalance.cond(randsort,:);
+counterBalance.cat=counterBalance.cat(randsort,:);
+counterBalance.room1=counterBalance.room1(randsort,:);
+counterBalance.session4=counterBalance.session4(randsort,:);
+writetable(struct2table(counterBalance),'CounterBalanceGen.csv');
 ```
