@@ -1,4 +1,4 @@
-# AutoCounterBalence
+# AutoCounterBalance
 Automatically perform counterbalancing of conditions for experiments.
 
 This code will counterbalence conditions with respect to each other. If you dont know what this means, then dont use this code...
